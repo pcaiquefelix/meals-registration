@@ -1,15 +1,16 @@
 {
   "type": "postgres",
   "host": "localhost",
-  "port": 1433,
-  "username": "user",
-  "password": "Password123",
-  "database": "DB_MEALS_REGISTRATION",
+  "port": 5432,
+  "username": "devuser",
+  "password": "devpass",
+  "database": "db_meals_registration",
   "entities": ["./src/domain/entities/*.ts"],
   "migrations": ["./src/infrastructure/database/migrations/*.ts"],
   "cli": {
     "migrationsDir": "./src/infrastructure/database/migrations"
   },
+  "synchronize": false,
   "options": { "encrypt": false },
   "logging": ["query", "error"]
 }

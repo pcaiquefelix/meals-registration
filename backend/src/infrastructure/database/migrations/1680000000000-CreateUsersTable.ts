@@ -1,4 +1,5 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import bcrypt from "bcryptjs";
 
 export class CreateUsersTable1680000000000 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -48,6 +49,13 @@ export class CreateUsersTable1680000000000 implements MigrationInterface {
         ],
       })
     );
+
+    // Insert a first user by default
+    const hashedPassword = bcrypt.hashSync("admin123", 10);
+    await queryRunner.query(`
+      INSERT INTO "users" ("name", "email", "password", "role")
+      VALUES ('Admin', 'admin@email.com', '${hashedPassword}', 'admin')
+    `);
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
