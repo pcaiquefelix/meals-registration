@@ -92,7 +92,7 @@ const MealsManager = () => {
                     ? timeNow.getDay() + 1
                     : timeNow.getDay()
                 ] &&
-              currentMealType === currentMeal.meal_type
+              currentMealType === currentMeal.meal_type.toLowerCase()
             ) {
               return currentMeal;
             }
@@ -100,6 +100,7 @@ const MealsManager = () => {
           }, {});
 
           setNextMeal(nextMeal);
+          console.log(currentMealType);
         }
       } catch (error) {
         if (error instanceof Error) {

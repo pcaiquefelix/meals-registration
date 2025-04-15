@@ -33,7 +33,7 @@ const Content = ({ users, updateUsers }) => {
 
   const handleSearchUser = (e) => {
     const searchFilterUpdate = users.filter((user) =>
-      user.name.toLowerCase().includes(e.target.value.toLowerCase())
+      user?.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
 
     setUsersFilter(searchFilterUpdate);
@@ -94,7 +94,7 @@ const Content = ({ users, updateUsers }) => {
         );
       }
       const usersUpdate = usersUpdateResponse.find(
-        (listUser) => listUser.email.toLowerCase() === user.email.toLowerCase()
+        (listUser) => listUser?.email.toLowerCase() === user?.email.toLowerCase()
       );
       usersUpdate.status = "Active";
       users.push(usersUpdate);
@@ -198,9 +198,9 @@ const Content = ({ users, updateUsers }) => {
                   <th className="px-6 py-4 text-center text-sm font-semibold text-gray-600">
                     Role
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-gray-600">
+                  {/* <th className="px-6 py-4 text-center text-sm font-semibold text-gray-600">
                     Status
-                  </th>
+                  </th> */}
                   <th className="px-6 py-4 text-center text-sm font-semibold text-gray-600">
                     Actions
                   </th>
@@ -249,18 +249,18 @@ const Content = ({ users, updateUsers }) => {
                           {role || notRegisteredInfo}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-center">
+                      {/* <td className="px-6 py-4 text-center">
                         <span
                           className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium
                       ${
-                        columnsClassName.status[user.status.toLowerCase()]
-                          ? columnsClassName.status[user.status.toLowerCase()]
+                        columnsClassName.status[user?.status.toLowerCase()]
+                          ? columnsClassName.status[user?.status.toLowerCase()]
                           : columnsClassName.status.inactive
                       }`}
                         >
                           {user.status || notRegisteredInfo}
                         </span>
-                      </td>
+                      </td> */}
                       <td className="px-6 py-4">
                         <div className="flex justify-center gap-2">
                           <button

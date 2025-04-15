@@ -30,10 +30,11 @@ export default class CreateMealsService {
       .where("CAST(meals.day_of_week AS DATE) = :day_of_week", {
         day_of_week: day_of_week.slice(0, 10),
       })
-      .andWhere("meals.meal_type = :meal_type", {
+      .andWhere("LOWER(meals.meal_type) = :meal_type", {
         meal_type: meal_type.toLowerCase(),
       })
       .getOne();
+
     if (mealValidator instanceof Meals) {
       return new Error("Meal type already registered for the selected date.");
     }

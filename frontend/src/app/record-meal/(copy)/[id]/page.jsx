@@ -1,5 +1,5 @@
 import api from "@/services/api";
-import MainForm from "../MainForm";
+import MainForm from "../../MainForm";
 
 export async function getMeal(id) {
   try {

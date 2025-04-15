@@ -11,14 +11,14 @@ const ProteinModal = ({ onClose, protein, onSave }) => {
   const [proteinRecord, setProteinRecord] = useState({
     id: protein?.id || "",
     name: protein?.name || "",
-    monthlyIncidence: protein?.monthlyIncidence || "",
+    monthly_incidence: protein?.monthly_incidence || "",
   });
 
   function handleInputFormOnChange(e) {
     setProteinRecord({
       ...proteinRecord,
       [e.target.name]:
-        e.target.name === "monthlyIncidence"
+        e.target.name === "monthly_incidence"
           ? parseInt(e.target.value)
           : e.target.value,
     });
@@ -62,8 +62,8 @@ const ProteinModal = ({ onClose, protein, onSave }) => {
 
             <InputForm
               type="number"
-              name="monthlyIncidence"
-              value={proteinRecord.monthlyIncidence || ""}
+              name="monthly_incidence"
+              value={proteinRecord.monthly_incidence || ""}
               min={1}
               max={30}
               labelText="Monthly Incidence"

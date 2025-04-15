@@ -81,12 +81,12 @@ const Footer = ({ allowedPaths }) => {
 
             <div className="flex items-center space-x-2 mb-2">
               <Phone size={18} />
-              <span className="text-sm">IT Extension: 5103</span>
+              <span className="text-sm">+55 01 3000-5000</span>
             </div>
 
             <div className="flex items-center space-x-2">
               <Mail size={18} />
-              <span className="text-sm">sistemas@usjp.com.br</span>
+              <span className="text-sm">support@email.com</span>
             </div>
           </div>
         </div>

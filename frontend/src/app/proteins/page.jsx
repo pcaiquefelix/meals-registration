@@ -10,7 +10,7 @@ export async function getProteins() {
     return response.data.map((protein) => ({
       id: protein.id,
       name: protein.name,
-      monthlyIncidence: protein.monthlyIncidence,
+      monthly_incidence: protein.monthly_incidence,
     }));
   } catch (error) {
     if (error instanceof Error) {

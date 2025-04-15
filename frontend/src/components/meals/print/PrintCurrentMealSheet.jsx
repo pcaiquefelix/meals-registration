@@ -1,6 +1,4 @@
-import { MealsDTO } from "@/entities/MealsDTO";
-
-const PrintCurrentMealSheet = ({ meal }: { meal: MealsDTO }) => {
+const PrintCurrentMealSheet = ({ meal }) => {
   const description = meal.description?.split("\n");
   const sides = meal.sides?.split("\n");
   const salads = meal.salads?.split("\n");
@@ -170,7 +168,7 @@ const PrintCurrentMealSheet = ({ meal }: { meal: MealsDTO }) => {
 
         .print-header-img {
           position: absolute;
-          width: 13rem;
+          width: 8rem;
         }
 
         .print-content {

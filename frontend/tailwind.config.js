@@ -24,7 +24,6 @@ module.exports = {
         "navbar-max": "20% 60% 20%",
         "navbar-mobile": "20% 80%",
       },
-      
     },
   },
   plugins: [

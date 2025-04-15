@@ -205,7 +205,7 @@ const Content = ({ proteins, updateProteins }) => {
                     </td>
                     <td className="flex justify-center px-6 py-4">
                       <div className="text-gray-900">
-                        {protein.monthlyIncidence}
+                        {protein.monthly_incidence}
                       </div>
                     </td>
                     <td className="px-6 py-4">

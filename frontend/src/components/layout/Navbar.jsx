@@ -205,9 +205,9 @@ const Navbar = ({ allowedPaths }) => {
           <Image
             src="/logo.jpg"
             alt="Lunch Today Restaurant"
-            width={300}
-            height={200}
-            className="h-10 w-20"
+            width={50}
+            height={50}
+            className="w-14"
           />
         </Link>
 

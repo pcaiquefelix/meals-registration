@@ -15,7 +15,7 @@ const MainForm = ({ proteins, meal }) => {
         Object.entries(meal).filter(([key]) => key !== "day_of_week")
       )
     : undefined;
-  const mealTypes = ["Supper", "Lunch", "Dinner"];
+  const mealType = ["Supper", "Lunch", "Dinner"];
   const [date, setDate] = useState({
     date: null,
     dateString: "",
@@ -26,7 +26,7 @@ const MainForm = ({ proteins, meal }) => {
       : {
           protein1: {},
           protein2: {},
-          mealType: mealTypes[0],
+          meal_type: mealType[0],
           description: "",
           sides: "",
           salads: "",
@@ -87,14 +87,14 @@ const MainForm = ({ proteins, meal }) => {
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!mealRecord.mealType) {
+    if (!mealRecord.meal_type) {
       return alert("Select a meal type.");
     }
     const mealRecordSubmit = {
       day_of_week: date.date,
       protein1: mealRecord.protein1.value,
       protein2: mealRecord.protein2.value,
-      mealType: mealRecord.mealType,
+      meal_type: mealRecord.meal_type,
       description: mealRecord.description,
       sides: mealRecord.sides,
       salads: mealRecord.salads,
@@ -187,36 +187,36 @@ const MainForm = ({ proteins, meal }) => {
     if (
       new Date(selectedDate).setUTCHours(0, 0, 0, 0) <=
         new Date(dateNow).setUTCHours(0, 0, 0, 0) &&
-      mealRecord.mealType &&
+      mealRecord.meal_type &&
       dateNow.getHours() >=
-        mealLimitHour[mealRecord.mealType.toLowerCase()].getHours()
+        mealLimitHour[mealRecord.meal_type.toLowerCase()].getHours()
     ) {
-      for (const i in mealTypes) {
+      for (const i in mealType) {
         if (
           !(
             dateNow.getHours() >=
-            mealLimitHour[mealTypes[i].toLowerCase()].getHours()
+            mealLimitHour[mealType[i].toLowerCase()].getHours()
           )
         ) {
           setMealRecord({
             ...mealRecord,
-            mealType: mealTypes[i],
+            meal_type: mealType[i],
           });
           break;
-        } else if (parseInt(i) + 1 === mealTypes.length) {
+        } else if (parseInt(i) + 1 === mealType.length) {
           setMealRecord({
             ...mealRecord,
-            mealType: "",
+            meal_type: "",
           });
         }
       }
     } else if (
-      !mealRecord.mealType &&
+      !mealRecord.meal_type &&
       selectedDate.toLocaleDateString() !== dateNow.toLocaleDateString()
     ) {
       setMealRecord({
         ...mealRecord,
-        mealType: mealTypes[0],
+        meal_type: mealType[0],
       });
     }
   };
@@ -276,7 +276,7 @@ const MainForm = ({ proteins, meal }) => {
           Meal Types
         </label>
         <div className="space-y-2">
-          {mealTypes.map((type) => {
+          {mealType.map((type) => {
             const isDisabled =
               date.date &&
               date.date.toLocaleDateString() === dateNow.toLocaleDateString() &&
@@ -287,8 +287,8 @@ const MainForm = ({ proteins, meal }) => {
               <div key={type} className="flex items-center">
                 <input
                   type="checkbox"
-                  id="mealType"
-                  checked={mealRecord.mealType === type}
+                  id="meal_type"
+                  checked={mealRecord.meal_type === type}
                   onChange={(e) => mealRecordHandleOnChange(e, type)}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
                   disabled={isDisabled}

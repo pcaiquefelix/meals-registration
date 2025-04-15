@@ -9,7 +9,7 @@ export default class CreateProteinService {
       return new Error("Protein already exists");
     }
     const newProtein = repository.create({ name, monthly_incidence });
-
+    
     try {
       const errors = await validate(newProtein);
       if (errors.length > 0) {
